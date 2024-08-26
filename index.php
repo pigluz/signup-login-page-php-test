@@ -17,15 +17,17 @@
     <h1>Sign up</h1>
 
     <div>
-    <form action="user_signup.inc.php" method="POST">
-        <input type="text" name="username" placeholder="Username...">
-        <input type="password" name="pwd" placeholder="Password...">
-        <input type="text" name="email" placeholder="Email...">
-        <input type="text" name="firstName" placeholder="First name...">
+    <form action="includes/user_signup.inc.php" method="POST">
+        <?php
+           show_inputs_fields();
+        ?>
 
         <button>Sign up!</button>
     </form>
 
+    <?php 
+        check_signup_errors();
+    ?>
     </div>
 </div>
     
