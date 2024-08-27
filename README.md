@@ -4,7 +4,8 @@
 
 > # TO DO:
 > - add css formating
-> - add log in system
+> - add something that alters the user data inside the database (changing the password, etc.)
+> - ~~add log in system~~ 
 > - idk
 <br>
 
