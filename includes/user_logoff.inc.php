@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     session_start();
     session_unset();
     session_destroy();
@@ -11,4 +11,3 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     header("Location: ../index.php");
     die();
 }
-

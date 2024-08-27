@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
 
@@ -12,23 +12,23 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         //error handling
         $errors = [];
 
-        if(is_input_empty($username, $pwd)) {
+        if (is_input_empty($username, $pwd)) {
             $errors["empty_input"] = "Fill in all fields!";
         };
 
         $result = get_user($pdo, $username);
 
-        if(is_username_invalid($result)) {
+        if (is_username_invalid($result)) {
             $errors["invalid_username"] = "Invalid login info!";
         };
 
-        if(!is_username_invalid($result) && is_password_invalid($pwd, $result["pwd"])) {
+        if (!is_username_invalid($result) && is_password_invalid($pwd, $result["pwd"])) {
             $errors["invalid_pwd"] = "Invalid login info!";
         };
 
         require_once "config_session.inc.php";
 
-        if($errors) {
+        if ($errors) {
             $_SESSION["login_errors"] = $errors;
             header("Location: ../index.php");
             die();
@@ -51,7 +51,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
-
 } else {
     header("Location: ../index.php");
     die();

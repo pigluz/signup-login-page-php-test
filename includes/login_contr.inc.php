@@ -20,8 +20,9 @@ function is_username_invalid(array|bool $result)
     }
 }
 
-function is_password_invalid(string $pwd, string $hashedPwd) {
-    if(!password_verify($pwd, $hashedPwd)) {
+function is_password_invalid(string $pwd, string $hashedPwd)
+{
+    if (!password_verify($pwd, $hashedPwd)) {
         return true;
     } else {
         return false;
