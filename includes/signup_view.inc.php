@@ -8,7 +8,7 @@ function show_inputs_fields() {
         echo '<input type="text" name="username" placeholder="Username..." value="' . $_SESSION["signup_data"]["username"] . '" >';
     } else {
         echo '<input type="text" name="username" placeholder="Username...">';
-    }
+    } 
     
     echo '<input type="password" name="pwd" placeholder="Password...">';
 

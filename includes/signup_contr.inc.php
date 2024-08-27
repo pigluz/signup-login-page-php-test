@@ -35,5 +35,5 @@ function is_email_taken(object $pdo, string $email) {
 };
 
 function create_user(object $pdo, string $username, string $pwd, string $email, string $firstname) {
-    set_user($pdo, $username, $pwd, $email, $firstname);
+    set_user($pdo, $username, $email, $pwd, $firstname);
 }
