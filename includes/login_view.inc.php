@@ -30,3 +30,10 @@ function show_log_off_button()
         <button>Log off!</button>
     </form>';
 }
+
+function if_changing_pwd_success() {
+    if (isset($_GET["password_changed"]) && $_GET["password_changed"] === "true") {
+        echo "<br>";
+        echo "<p>Successfully changed the password!";
+    }
+}

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         };
 
         if (is_email_taken($pdo, $email)) {
-            $errors["empty_input"] = "Email already registered!";
+            $errors["email_taken"] = "Email already registered!";
         };
 
         require_once("config_session.inc.php");
