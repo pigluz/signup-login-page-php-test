@@ -4,10 +4,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
 
     try {
-        require_once("config_session.inc.php");
-        require_once("dbh.inc.php");
+        require_once("../config_session.inc.php");
+        require_once("../dbh.inc.php");
         require_once("change_pwd_model.inc.php");
-        require_once("change_pwd_view.inc.php");
         require_once("change_pwd_contr.inc.php");
 
         //error handling
@@ -23,19 +22,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["nonexisting_email"] = "Email doesn't exist in the database!";
         }
 
-        require_once("config_session.inc.php");
+        require_once("../config_session.inc.php");
 
         if($errors) {
             $_SESSION["change_pwd_errors"] = $errors;
-            header("Location: ../forgot_password.php");
+            header("Location: ../../forgot_password.php");
             die(); 
         }
         $_SESSION["user_email"] = $email;
-        header("Location: ../forgot_password.php?checkemail");
+        header("Location: ../../forgot_password.php?checkemail");
     } catch (PDOException $e){
         die("Query failed: " . $e->getMessage());
     }
 } else {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
     die();
 }

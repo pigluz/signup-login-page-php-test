@@ -1,7 +1,7 @@
 <?php
     require_once("includes/config_session.inc.php");
-    require_once("includes/signup_view.inc.php");
-    require_once("includes/login_view.inc.php");
+    require_once("includes/signup/signup_view.inc.php");
+    require_once("includes/login/login_view.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
             <h1>Sign up</h1>
             <div>
                 <div>
-                    <form action="includes/user_signup.inc.php" method="POST">
+                    <form action="includes/signup/user_signup.inc.php" method="POST">
                         <?php
                         show_inputs_fields();
                         ?>
@@ -43,7 +43,7 @@
                 <h1>Log in</h1>
                 <div>
                     <div>
-                        <form action="includes/user_login.inc.php" method="POST">
+                        <form action="includes/login/user_login.inc.php" method="POST">
                             <input type="text" name="username" placeholder="Username...">
                             <input type="password" name="pwd" placeholder="Password...">
 

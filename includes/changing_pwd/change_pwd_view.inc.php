@@ -16,7 +16,7 @@ function display_errors() {
 function display_inputs() {
     echo '<h1>Changing your password</h1>';
     if (!isset($_GET['checkemail']) && !isset($_GET['correctPin'])) {
-        echo '<form action="includes/user_change_password.inc.php" method="POST">';
+        echo '<form action="includes/changing_pwd/user_change_password.inc.php" method="POST">';
         echo '<label for="email">Please enter your email:</label>';
         echo '<input type="text" name="email" placeholder="Email...">';
         echo '<button>Submit</button>';
@@ -24,14 +24,14 @@ function display_inputs() {
     }
     else if(isset($_GET['checkemail'])) {
         show_generated_code();
-        echo '<form action="includes/check_code.inc.php" method="POST">';
+        echo '<form action="includes/changing_pwd/check_code.inc.php" method="POST">';
         echo "<p>Enter the code we've sent to your email (check console.log)</p>";
         echo '<input type="text" name="code_input" placeholder="Code...">';
         echo '<button>Submit</button>';
         echo '</form>';
     } else if(isset($_GET["correctPin"]) && $_GET["correctPin"] === "false") {
         show_generated_code();
-        echo '<form action="includes/check_code.inc.php" method="POST">';
+        echo '<form action="includes/changing_pwd/check_code.inc.php" method="POST">';
         echo "<p>Enter the code we've sent to your email (check console.log)</p>";
         echo '<input type="text" name="code_input" placeholder="Code...">';
         echo '<button>Submit</button>';
@@ -39,7 +39,7 @@ function display_inputs() {
         echo '</form>'; 
     }
     else if (isset($_GET["correctPin"]) && $_GET["correctPin"] === "true") { 
-        echo '<form action="includes/change_password.inc.php" method="POST">';
+        echo '<form action="includes/changing_pwd/change_password.inc.php" method="POST">';
         echo '<label for="pwd">Please enter your new password</label>';
         echo '<input type="password" name="pwd" placeholder="New password...">';
         echo '<button>Change password</button>';
@@ -53,4 +53,4 @@ function show_generated_code() {
     $_SESSION["change_pwd_code"] = $code;
 }
 
-// TO JEST OKROPNE WIEM, ALE DZIALA!
+// mea culpa, mea culpa, mea maxima culpa.

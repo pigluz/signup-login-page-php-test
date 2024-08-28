@@ -5,13 +5,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $code = $_SESSION["change_pwd_code"];
 
     if($code != $user_code) {
-        header("Location: ../forgot_password.php?correctPin=true");
+        header("Location: ../../forgot_password.php?correctPin=true");
     } else {
-        header("Location: ../forgot_password.php?correctPin=false");
+        header("Location: ../../forgot_password.php?correctPin=false");
     }
     unset($_SESSION["change_pwd_code"]);
     die();
 } else {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
     die();
 }

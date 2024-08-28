@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pwd = $_POST["pwd"];
 
     try {
-        require_once("dbh.inc.php");
+        require_once("../dbh.inc.php");
         require_once("login_model.inc.php");
         require_once("login_contr.inc.php");
 
@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["invalid_pwd"] = "Invalid login info!";
         };
 
-        require_once "config_session.inc.php";
+        require_once "../config_session.inc.php";
 
         if ($errors) {
             $_SESSION["login_errors"] = $errors;
-            header("Location: ../index.php");
+            header("Location: ../../index.php");
             die();
         }
 
@@ -46,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $pdo = null;
         $stmt = null;
-        header("Location: ../index.php?login=success");
+        header("Location: ../../index.php?login=success");
         die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
 } else {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
     die();
 }

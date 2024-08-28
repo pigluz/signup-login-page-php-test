@@ -3,8 +3,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $pwd = $_POST["pwd"];
 
         try {
-                require_once("config_session.inc.php");
-                require_once("dbh.inc.php");
+                require_once("../config_session.inc.php");
+                require_once("../dbh.inc.php");
                 require_once("change_pwd_model.inc.php");
 
                 $email = $_SESSION["user_email"];
@@ -13,13 +13,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 $stmt = null;
                 $pdo = null;
         
-                header("Location: ../index.php?password_changed=true");
+                header("Location: ../../index.php?password_changed=true");
                 die();
         } catch (PDOException $e) {
                 die("Query failed: ". $e->getMessage());
         }
 } else {
-        header("Location: ../index.php");
+        header("Location: ../../index.php");
         die();
 }
     
