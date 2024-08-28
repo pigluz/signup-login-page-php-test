@@ -4,7 +4,7 @@
 
 > # TO DO:
 > - add css formating
-> - add something that alters the user data inside the database (changing the password, etc.)
+> - add something that alters the user data inside the database ~~(changing the password~~, changing username, updating password, updating email and first name after login.)
 > - ~~add log in system~~ 
 > - idk
 <br>
