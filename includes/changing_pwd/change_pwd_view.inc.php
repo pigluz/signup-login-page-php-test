@@ -38,6 +38,18 @@ function display_inputs() {
         echo '<p>You inserted a wrong code! Try again';
         echo '</form>'; 
     }
+    else if(isset($_SESSION["change_pwd_error"]) && isset($_GET["correctPin"]) && $_GET["correctPin"] === "true") {
+        $error = $_SESSION["change_pwd_error"];
+        unset($_SESSION["change_pwd_error"]);
+        foreach($error as $err) {
+            echo '<p>' . $err .'</p>';
+        }
+        echo '<form action="includes/changing_pwd/change_password.inc.php" method="POST">';
+        echo '<label for="pwd">Please enter your new password</label>';
+        echo '<input type="password" name="pwd" placeholder="New password...">';
+        echo '<button>Change password</button>';
+        echo '</form>';
+    }
     else if (isset($_GET["correctPin"]) && $_GET["correctPin"] === "true") { 
         echo '<form action="includes/changing_pwd/change_password.inc.php" method="POST">';
         echo '<label for="pwd">Please enter your new password</label>';
@@ -45,7 +57,7 @@ function display_inputs() {
         echo '<button>Change password</button>';
         echo '</form>';
     } 
-}
+} 
 
 function show_generated_code() {
     $code = rand(100000, 999999);

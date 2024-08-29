@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["empty_input"] = "Fill in all fields!";
         };
 
-        if (is_email_invalid($email)) {
+        if (!is_input_empty($username, $pwd, $email, $firstname) && is_email_invalid($email)) {
             $errors["invalid_email"] = "Invalid email used!";
         };
 
-        if (is_username_taken($pdo, $username)) {
+        if (!is_input_empty($username, $pwd, $email, $firstname) && !is_email_invalid($email) && is_username_taken($pdo, $username)) {
             $errors["username_taken"] = "Username already taken!";
         };
 
-        if (is_email_taken($pdo, $email)) {
+        if (!is_input_empty($username, $pwd, $email, $firstname) && !is_email_invalid($email) && is_email_taken($pdo, $email)) {
             $errors["email_taken"] = "Email already registered!";
         };
 

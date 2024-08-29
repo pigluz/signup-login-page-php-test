@@ -26,3 +26,11 @@ function is_email_nonexisting(array|bool $result) {
     }
 
 }
+
+function is_pwd_empty(string $pwd) {
+    if(empty($pwd)) {
+        return true;
+    } else {
+        return false;
+    }
+}

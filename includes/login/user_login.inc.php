@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $result = get_user($pdo, $username);
 
-        if (is_username_invalid($result)) {
+        if (!is_input_empty($username, $pwd) && is_username_invalid($result)) {
             $errors["invalid_username"] = "Invalid login info!";
         };
 
-        if (!is_username_invalid($result) && is_password_invalid($pwd, $result["pwd"])) {
+        if (!is_input_empty($username, $pwd) && !is_username_invalid($result) && is_password_invalid($pwd, $result["pwd"])) {
             $errors["invalid_pwd"] = "Invalid login info!";
         };
 
@@ -37,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_id"] = $result["id"];
         $_SESSION["user_username"] = htmlspecialchars($result["username"]);
         $_SESSION["user_firstname"] = htmlspecialchars($result["firstname"]);
-
+        $_SESSION["user_email"] = htmlspecialchars($result["email"]);
+        
         $newSessionId = session_create_id();
         $sessionId = $newSessionId . "_" . $result["id"];
         session_id($sessionId);
@@ -46,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $pdo = null;
         $stmt = null;
-        header("Location: ../../index.php?login=success");
+
+        header("Location: ../../userpage.php");
         die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
