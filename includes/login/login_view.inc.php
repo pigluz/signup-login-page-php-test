@@ -6,9 +6,6 @@ function check_login_errors()
 {
     if (isset($_SESSION["login_errors"])) {
         $errors = $_SESSION["login_errors"];
-
-        echo "<br>";
-
         foreach ($errors as $error) {
             echo "<p>" . $error . "</p>";
         }
@@ -28,5 +25,8 @@ function login_status() {
     if (isset($_GET["deleted_account"])) {
         echo "<br>";
         echo "<p>Account deleted successfully.</p>";
+    }
+    if (isset($_GET["signup"]) && $_GET["signup"] === "success") {
+        echo "<p>Signed up successfully!</p>";
     }
 }

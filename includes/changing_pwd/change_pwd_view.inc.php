@@ -14,7 +14,6 @@ function display_errors() {
 }
 
 function display_inputs() {
-    echo '<h1>Changing your password</h1>';
     if (!isset($_GET['checkemail']) && !isset($_GET['correctPin'])) {
         echo '<form action="includes/changing_pwd/user_change_password.inc.php" method="POST">';
         echo '<label for="email">Please enter your email:</label>';

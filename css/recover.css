@@ -2,34 +2,20 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-color: rgb(212, 212, 212)  ;
+    background-color: rgb(212, 212, 212);
 }
 
-#login_status {
+#real_container {
     display: flex;
-    justify-content: center;
-}
-#container {
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.form_container {
+    width: 300px;
+    height: 150px;
     padding: 50px;
     background-color: rgb(255, 255, 255) ;
     border-radius: 10px;
-}
-
-#sign_up_div {
-    height: 320px;
-    margin-right: 10px;
-}
-
-#log_in_div {
-    height: 250px;
-    margin-left: 10px;
+    margin: auto;
 }
 
 #container input {
